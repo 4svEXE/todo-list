@@ -1,28 +1,26 @@
 import { Component } from "@angular/core";
-import { Category } from "src/app/model/Category";
+import { Task } from "src/app/model/Task";
 import { DataHandlerService } from "src/app/service/data-handler.service";
-import { Task } from "./../../model/Task";
+import { Category } from "./../../model/Category";
 
 @Component({
-  selector: "app-sidebar",
-  templateUrl: "./sidebar.component.html",
-  styleUrls: ["./sidebar.component.scss"],
+  selector: "app-all-tasks",
+  templateUrl: "./all-tasks.component.html",
+  styleUrls: ["./all-tasks.component.scss"],
 })
-export class SidebarComponent {
-  categories: Category[] = [];
+export class AllTasksComponent {
   tasks: Task[] = [];
 
   constructor(private dataHandler: DataHandlerService) {}
 
   ngOnInit() {
-    this.categories = this.dataHandler.getCategories();
     this.tasks = this.dataHandler.getAllTasks();
+
+    console.log(this.tasks);
   }
 
-  showTasksByCategory(category: Category) {
+  showTasksByCategory(category: Category | undefined) {
     this.tasks = this.dataHandler.getTasksByCategory(category);
-    
-    console.log(" this.tasks", this.tasks);
   }
 
   showAllTasks() {

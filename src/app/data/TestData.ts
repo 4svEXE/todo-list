@@ -4,11 +4,11 @@ import { Category } from "../model/Category";
 
 export class TestData {
   static categories: Category[] = [
-    { id: 1, title: "work" },
-    { id: 2, title: "hobby" },
-    { id: 3, title: "learning" },
-    { id: 4, title: "any" },
-    { id: 5, title: "important" },
+    { id: 1, title: "work", size:0 },
+    { id: 2, title: "hobby", size:0 },
+    { id: 3, title: "learning", size:0 },
+    { id: 4, title: "any", size:0 },
+    { id: 5, title: "important", size:0 },
   ];
 
   static priorities: Priority[] = [

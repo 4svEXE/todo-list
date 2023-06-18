@@ -1,0 +1,71 @@
+<div class="w-full flex flex-col">
+  <div class="w-full grid grid-cols-12 auto-cols-min border">
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0"
+    >
+      id
+    </div>
+
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0"
+    >
+      priority
+    </div>
+
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0"
+    >
+      completed
+    </div>
+
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0 col-span-8"
+    >
+      textttttt
+    </div>
+
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0 pointer"
+      (click)="showAllTasks()"
+    >
+      category
+    </div>
+  </div>
+
+  <div
+    *ngFor="let task of tasks; index as i"
+    class="w-full grid grid-cols-12 auto-cols-min border hover:bg-slate-300 transition-all"
+  >
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0"
+    >
+      {{i + 1}}
+    </div>
+
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0"
+    >
+      {{task.priority}}
+    </div>
+
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0"
+    >
+      {{task.completed }}
+      <input type="checkbox" id="" />
+    </div>
+
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0 col-span-8"
+    >
+      {{task.title}}
+    </div>
+
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0"
+      (click)="showTasksByCategory(task.category)"
+    >
+      {{task.category}}
+    </div>
+  </div>
+</div>
