@@ -83,6 +83,7 @@
 
       <li>
         <a
+          [class.border]="selectedCategoty === undefined"
           (click)="showAllTasks()"
           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         >
@@ -112,6 +113,7 @@
         <a
           (click)="showTasksByCategory(category)"
           class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+          [class.border]="category === selectedCategoty"
         >
           <svg
             aria-hidden="true"

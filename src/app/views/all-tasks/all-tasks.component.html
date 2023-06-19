@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col">
+<div class="w-full flex flex-col text-sm">
   <div class="w-full grid grid-cols-12 auto-cols-min border">
     <div
       class="flex items-center justify-center p-1 border border-y-0 border-l-0"
@@ -19,9 +19,15 @@
     </div>
 
     <div
-      class="flex items-center justify-center p-1 border border-y-0 border-l-0 col-span-8"
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0 col-span-7"
     >
       textttttt
+    </div>
+
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0"
+    >
+      date
     </div>
 
     <div
@@ -35,6 +41,8 @@
   <div
     *ngFor="let task of tasks; index as i"
     class="w-full grid grid-cols-12 auto-cols-min border hover:bg-slate-300 transition-all"
+    [class.opacity-50]="task.completed"
+    [class.line-through]="task.completed"
   >
     <div
       class="flex items-center justify-center p-1 border border-y-0 border-l-0"
@@ -44,28 +52,34 @@
 
     <div
       class="flex items-center justify-center p-1 border border-y-0 border-l-0"
+      style="background-color: {{task.priority?.color}}90"
     >
-      {{task.priority}}
+      {{task.priority?.title}}
     </div>
 
     <div
       class="flex items-center justify-center p-1 border border-y-0 border-l-0"
     >
-      {{task.completed }}
-      <input type="checkbox" id="" />
+      <input type="checkbox" id="" [checked]="task.completed" />
     </div>
 
     <div
-      class="flex items-center justify-center p-1 border border-y-0 border-l-0 col-span-8"
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0 col-span-7"
     >
       {{task.title}}
     </div>
 
     <div
       class="flex items-center justify-center p-1 border border-y-0 border-l-0"
+    >
+      {{task.date | date: 'short'}}
+    </div>
+
+    <div
+      class="flex items-center justify-center p-1 border border-y-0 border-l-0"
       (click)="showTasksByCategory(task.category)"
     >
-      {{task.category}}
+      {{task.category?.title}}
     </div>
   </div>
 </div>

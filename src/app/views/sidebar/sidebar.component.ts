@@ -11,6 +11,7 @@ import { Task } from "./../../model/Task";
 export class SidebarComponent {
   categories: Category[] = [];
   tasks: Task[] = [];
+  selectedCategoty: Category | undefined;
 
   constructor(private dataHandler: DataHandlerService) {}
 
@@ -27,10 +28,14 @@ export class SidebarComponent {
 
   showTasksByCategory(category: Category | undefined) {
     this.dataHandler.fillTasksByCategory(category);
+
+
+    this.selectedCategoty = category
   }
 
   showAllTasks() {
     this.dataHandler.fillAllTasks();
+    this.selectedCategoty = undefined
   }
 
   updateCategorySize(category: Category) {
