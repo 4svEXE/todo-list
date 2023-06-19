@@ -59,5 +59,13 @@ export class TestData {
       category: TestData.categories[4],
       date: new Date(new Date().toUTCString() + "-0"), // '-0' to get GMT0 date
     },
+    {
+      id: 6,
+      title: "Im 6 task without category!",
+      completed: false,
+      priority: TestData.priorities[1],
+      category: undefined,
+      date: new Date(new Date().toUTCString() + "-0"), // '-0' to get GMT0 date
+    },
   ];
 }
