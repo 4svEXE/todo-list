@@ -16,16 +16,28 @@ export class SidebarComponent {
 
   ngOnInit() {
     this.categories = this.dataHandler.getCategories();
-    this.tasks = this.dataHandler.getAllTasks();
+
+    // subscribe - observe the data
+    this.dataHandler.taskSubject.subscribe(tasks => this.tasks = tasks);
   }
 
-  showTasksByCategory(category: Category) {
-    this.tasks = this.dataHandler.getTasksByCategory(category);
-    
-    console.log(" this.tasks", this.tasks);
+  ngAfterContentInit(){
+
+  }
+
+  showTasksByCategory(category: Category | undefined) {
+    this.dataHandler.fillTasksByCategory(category);
   }
 
   showAllTasks() {
-    this.tasks = this.dataHandler.getAllTasks();
+    this.dataHandler.fillAllTasks();
+  }
+
+  updateCategorySize(category: Category) {
+    this.dataHandler.updateCategorySize(category)
+  }
+
+  showAllTasksLength(): Number {
+    return this.dataHandler.getTasksLength()
   }
 }

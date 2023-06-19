@@ -14,16 +14,15 @@ export class AllTasksComponent {
   constructor(private dataHandler: DataHandlerService) {}
 
   ngOnInit() {
-    this.tasks = this.dataHandler.getAllTasks();
-
-    console.log(this.tasks);
+    // subscribe - observe the data
+    this.dataHandler.taskSubject.subscribe(tasks => this.tasks = tasks);
   }
 
   showTasksByCategory(category: Category | undefined) {
-    this.tasks = this.dataHandler.getTasksByCategory(category);
+    this.dataHandler.fillTasksByCategory(category);
   }
 
   showAllTasks() {
-    this.tasks = this.dataHandler.getAllTasks();
+    this.dataHandler.fillAllTasks();
   }
 }
