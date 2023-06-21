@@ -4,15 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './views/sidebar/sidebar.component';
-import { CategoriesComponent } from './views/categories/categories.component';
 import { AllTasksComponent } from './views/all-tasks/all-tasks.component';
+import { LearnRxJSComponent } from './views/learn-rx-js/learn-rx-js.component';
+import { LearnTypeScriptComponent } from './views/learn-type-script/learn-type-script.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    CategoriesComponent,
-    AllTasksComponent
+    AllTasksComponent,
+    LearnRxJSComponent,
+    LearnTypeScriptComponent
   ],
   imports: [
     BrowserModule,
